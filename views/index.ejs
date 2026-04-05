@@ -1,0 +1,92 @@
+<div class="hero-section">
+
+  <!-- Floating accent elements -->
+  <div class="hero-accent hero-accent-1">01</div>
+  <div class="hero-accent hero-accent-2">CF</div>
+  <div class="hero-accent hero-accent-3">∞</div>
+
+  <!-- Title block -->
+  <div class="hero-title-block">
+    <div class="hero-tag">// CODEFORCES TRACKER v1.0</div>
+    <h1 class="hero-title">
+      <span class="title-line-1">FORGE</span>
+      <span class="title-line-2">YOUR</span>
+      <span class="title-line-3">LEGEND<span class="title-dot">.</span></span>
+    </h1>
+    <p class="hero-sub">
+      Enter your Codeforces handle. Unveil your entire journey —<br/>
+      submissions, ratings, solved problems, and more.
+    </p>
+  </div>
+
+  <!-- Search Box -->
+  <div class="search-container">
+    <% if (error) { %>
+      <div class="search-error">
+        <span class="error-icon">⚠</span> <%= error %>
+      </div>
+    <% } %>
+
+    <form class="search-form" action="/profile/search" method="POST" id="searchForm">
+      <div class="search-box neo-box">
+        <div class="search-label">HANDLE</div>
+        <div class="search-inner">
+          <span class="search-prefix">cf/</span>
+          <input
+            type="text"
+            name="handle"
+            id="handleInput"
+            class="search-input"
+            placeholder="tourist"
+            autocomplete="off"
+            spellcheck="false"
+            autofocus
+          />
+          <button type="submit" class="search-btn" id="searchBtn">
+            <span class="btn-text">ANALYZE</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Quick examples -->
+    <div class="quick-examples">
+      <span class="quick-label">TRY:</span>
+      <button class="quick-handle" data-handle="tourist">tourist</button>
+      <button class="quick-handle" data-handle="Benq">Benq</button>
+      <button class="quick-handle" data-handle="Um_nik">Um_nik</button>
+      <button class="quick-handle" data-handle="jiangly">jiangly</button>
+    </div>
+  </div>
+
+  <!-- Feature pills -->
+  <div class="feature-pills">
+    <div class="feature-pill neo-box-sm">
+      <span class="pill-icon">📊</span>
+      <span>Submission Stats</span>
+    </div>
+    <div class="feature-pill neo-box-sm">
+      <span class="pill-icon">🏆</span>
+      <span>Rating History</span>
+    </div>
+    <div class="feature-pill neo-box-sm">
+      <span class="pill-icon">🏷️</span>
+      <span>Problem Tags</span>
+    </div>
+    <div class="feature-pill neo-box-sm">
+      <span class="pill-icon">⚡</span>
+      <span>Language Breakdown</span>
+    </div>
+    <div class="feature-pill neo-box-sm">
+      <span class="pill-icon">🕐</span>
+      <span>Recent Activity</span>
+    </div>
+  </div>
+
+  <!-- Scroll cue -->
+  <div class="scroll-cue">
+    <div class="scroll-line"></div>
+  </div>
+
+</div>

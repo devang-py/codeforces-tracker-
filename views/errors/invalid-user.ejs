@@ -1,0 +1,71 @@
+<div class="error-container">
+
+  <div class="itachi-wrap">
+    <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" class="itachi-svg">
+      <defs>
+        <radialGradient id="glowGrad2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" style="stop-color:#cc0000;stop-opacity:0.3"/>
+          <stop offset="100%" style="stop-color:#000000;stop-opacity:0"/>
+        </radialGradient>
+        <filter id="glow2">
+          <feGaussianBlur stdDeviation="4" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+      </defs>
+      <ellipse cx="200" cy="300" rx="180" ry="220" fill="url(#glowGrad2)"/>
+      <path d="M 80 240 Q 60 350 50 480 L 350 480 Q 340 350 320 240 Q 280 200 200 195 Q 120 200 80 240Z"
+            fill="#1a0a0a" stroke="#cc0000" stroke-width="1.5"/>
+      <path d="M 100 300 Q 110 290 125 295 Q 130 285 145 288 Q 150 295 140 302 Z" fill="#cc0000" opacity="0.7"/>
+      <path d="M 240 320 Q 250 308 268 312 Q 274 302 292 306 Q 298 315 285 323 Z" fill="#cc0000" opacity="0.7"/>
+      <path d="M 150 380 Q 162 368 180 372 Q 186 360 206 364 Q 212 375 198 382 Z" fill="#cc0000" opacity="0.6"/>
+      <path d="M 155 215 Q 200 230 245 215 L 240 240 Q 200 255 160 240 Z" fill="#f0e8d8" stroke="#ddd" stroke-width="0.5"/>
+      <rect x="185" y="190" width="30" height="30" rx="8" fill="#c8a882"/>
+      <ellipse cx="200" cy="160" rx="60" ry="70" fill="#c8a882"/>
+      <path d="M 145 120 Q 155 80 180 65 Q 200 55 220 65 Q 245 80 255 120 Q 265 90 258 60 Q 240 20 200 15 Q 160 20 142 60 Q 135 90 145 120Z" fill="#1a1a1a"/>
+      <path d="M 145 130 Q 130 150 128 180 Q 135 175 145 170 Q 142 155 148 140Z" fill="#1a1a1a"/>
+      <path d="M 255 130 Q 270 150 272 180 Q 265 175 255 170 Q 258 155 252 140Z" fill="#1a1a1a"/>
+      <rect x="144" y="118" width="112" height="18" rx="4" fill="#2a2a2a" stroke="#777" stroke-width="1"/>
+      <circle cx="200" cy="127" r="8" fill="none" stroke="#888" stroke-width="1.5"/>
+      <line x1="195" y1="122" x2="205" y2="132" stroke="#888" stroke-width="1.5"/>
+      <!-- Eyes closed - looking away -->
+      <path d="M 164 162 Q 178 155 192 162" stroke="#8a6040" stroke-width="2.5" fill="none"/>
+      <path d="M 208 162 Q 222 155 236 162" stroke="#8a6040" stroke-width="2.5" fill="none"/>
+      <path d="M 178 175 Q 175 190 172 210" stroke="#6a3333" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M 222 175 Q 225 190 228 210" stroke="#6a3333" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M 198 180 Q 200 188 202 180" stroke="#b09070" stroke-width="1.5" fill="none"/>
+      <path d="M 188 200 Q 200 206 212 200" stroke="#8a5a5a" stroke-width="2" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+
+  <div class="error-content">
+    <div class="error-code-tag">// HANDLE NOT FOUND</div>
+    <h1 class="error-code" style="font-size:clamp(3rem,8vw,6rem)">USER<br/>UNKNOWN</h1>
+    <h2 class="error-title">
+      <span class="error-handle">"<%= handle %>"</span><br/>
+      DOES NOT EXIST.
+    </h2>
+    <p class="error-quote">
+      <em>"Those who turn their hands against their comrades are sure to die a terrible death."</em><br/>
+      — Itachi Uchiha
+    </p>
+    <p class="error-message">
+      Double-check the handle spelling. Codeforces handles are case-sensitive.
+    </p>
+    <div class="error-actions">
+      <a href="/" class="error-btn neo-box">SEARCH AGAIN</a>
+    </div>
+    <div class="sharingan-bg">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="#cc000033" stroke-width="2"/>
+        <circle cx="50" cy="50" r="30" fill="#cc000022"/>
+        <circle cx="50" cy="50" r="15" fill="none" stroke="#cc000055" stroke-width="1.5"/>
+        <circle cx="50" cy="50" r="6" fill="#cc000066"/>
+        <line x1="50" y1="5" x2="50" y2="95" stroke="#cc000033" stroke-width="1"/>
+        <line x1="5" y1="50" x2="95" y2="50" stroke="#cc000033" stroke-width="1"/>
+        <line x1="18" y1="18" x2="82" y2="82" stroke="#cc000033" stroke-width="1"/>
+        <line x1="82" y1="18" x2="18" y2="82" stroke="#cc000033" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+
+</div>

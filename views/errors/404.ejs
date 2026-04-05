@@ -1,0 +1,149 @@
+<div class="error-container">
+
+  <!-- Itachi SVG Illustration -->
+  <div class="itachi-wrap">
+    <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" class="itachi-svg">
+      <!-- Background glow -->
+      <defs>
+        <radialGradient id="glowGrad" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" style="stop-color:#cc0000;stop-opacity:0.3"/>
+          <stop offset="100%" style="stop-color:#000000;stop-opacity:0"/>
+        </radialGradient>
+        <radialGradient id="sharinganGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" style="stop-color:#ff2200;stop-opacity:0.8"/>
+          <stop offset="60%" style="stop-color:#cc0000;stop-opacity:0.4"/>
+          <stop offset="100%" style="stop-color:#000;stop-opacity:0"/>
+        </radialGradient>
+        <filter id="glow">
+          <feGaussianBlur stdDeviation="4" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+        <filter id="softGlow">
+          <feGaussianBlur stdDeviation="3" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+      </defs>
+
+      <!-- Background atmosphere -->
+      <ellipse cx="200" cy="300" rx="180" ry="220" fill="url(#glowGrad)"/>
+
+      <!-- Cloak - body -->
+      <path d="M 80 240 Q 60 350 50 480 L 350 480 Q 340 350 320 240 Q 280 200 200 195 Q 120 200 80 240Z"
+            fill="#1a0a0a" stroke="#cc0000" stroke-width="1.5"/>
+
+      <!-- Cloud patterns on cloak -->
+      <path d="M 100 300 Q 110 290 125 295 Q 130 285 145 288 Q 150 295 140 302 Z"
+            fill="#cc0000" opacity="0.7"/>
+      <path d="M 240 320 Q 250 308 268 312 Q 274 302 292 306 Q 298 315 285 323 Z"
+            fill="#cc0000" opacity="0.7"/>
+      <path d="M 150 380 Q 162 368 180 372 Q 186 360 206 364 Q 212 375 198 382 Z"
+            fill="#cc0000" opacity="0.6"/>
+      <path d="M 210 420 Q 225 408 244 412 Q 250 400 268 405 Q 274 416 258 422 Z"
+            fill="#cc0000" opacity="0.6"/>
+
+      <!-- White collar trim -->
+      <path d="M 155 215 Q 200 230 245 215 L 240 240 Q 200 255 160 240 Z"
+            fill="#f0e8d8" stroke="#ddd" stroke-width="0.5"/>
+
+      <!-- Neck -->
+      <rect x="185" y="190" width="30" height="30" rx="8" fill="#c8a882"/>
+
+      <!-- Head -->
+      <ellipse cx="200" cy="160" rx="60" ry="70" fill="#c8a882"/>
+
+      <!-- Hair - dark, flowing -->
+      <path d="M 145 120 Q 155 80 180 65 Q 200 55 220 65 Q 245 80 255 120 Q 265 90 258 60 Q 240 20 200 15 Q 160 20 142 60 Q 135 90 145 120Z"
+            fill="#1a1a1a"/>
+      <!-- Side hair strands -->
+      <path d="M 145 130 Q 130 150 128 180 Q 135 175 145 170 Q 142 155 148 140Z" fill="#1a1a1a"/>
+      <path d="M 255 130 Q 270 150 272 180 Q 265 175 255 170 Q 258 155 252 140Z" fill="#1a1a1a"/>
+
+      <!-- Headband -->
+      <rect x="144" y="118" width="112" height="18" rx="4" fill="#2a2a2a" stroke="#777" stroke-width="1"/>
+      <!-- Konoha symbol on headband - crossed out -->
+      <circle cx="200" cy="127" r="8" fill="none" stroke="#888" stroke-width="1.5"/>
+      <line x1="195" y1="122" x2="205" y2="132" stroke="#888" stroke-width="1.5"/>
+
+      <!-- Face features -->
+      <!-- Tear marks -->
+      <path d="M 178 175 Q 175 190 172 210" stroke="#6a3333" stroke-width="2" fill="none" stroke-linecap="round"/>
+      <path d="M 222 175 Q 225 190 228 210" stroke="#6a3333" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+      <!-- Eyes - Mangekyou Sharingan -->
+      <!-- Left eye -->
+      <ellipse cx="178" cy="165" rx="14" ry="10" fill="#0d0000"/>
+      <circle cx="178" cy="165" r="9" fill="#cc0000" filter="url(#softGlow)"/>
+      <!-- Mangekyou pattern left -->
+      <circle cx="178" cy="165" r="5" fill="#0d0000"/>
+      <circle cx="178" cy="165" r="2.5" fill="#cc2200"/>
+      <line x1="178" y1="157" x2="178" y2="161" stroke="#880000" stroke-width="1.5"/>
+      <line x1="178" y1="169" x2="178" y2="173" stroke="#880000" stroke-width="1.5"/>
+      <line x1="170" y1="165" x2="174" y2="165" stroke="#880000" stroke-width="1.5"/>
+      <line x1="182" y1="165" x2="186" y2="165" stroke="#880000" stroke-width="1.5"/>
+      <!-- Glow ring -->
+      <circle cx="178" cy="165" r="10" fill="none" stroke="#ff2200" stroke-width="0.8" opacity="0.8"/>
+
+      <!-- Right eye -->
+      <ellipse cx="222" cy="165" rx="14" ry="10" fill="#0d0000"/>
+      <circle cx="222" cy="165" r="9" fill="#cc0000" filter="url(#softGlow)"/>
+      <!-- Mangekyou pattern right -->
+      <circle cx="222" cy="165" r="5" fill="#0d0000"/>
+      <circle cx="222" cy="165" r="2.5" fill="#cc2200"/>
+      <line x1="222" y1="157" x2="222" y2="161" stroke="#880000" stroke-width="1.5"/>
+      <line x1="222" y1="169" x2="222" y2="173" stroke="#880000" stroke-width="1.5"/>
+      <line x1="214" y1="165" x2="218" y2="165" stroke="#880000" stroke-width="1.5"/>
+      <line x1="226" y1="165" x2="230" y2="165" stroke="#880000" stroke-width="1.5"/>
+      <!-- Glow ring -->
+      <circle cx="222" cy="165" r="10" fill="none" stroke="#ff2200" stroke-width="0.8" opacity="0.8"/>
+
+      <!-- Nose -->
+      <path d="M 198 180 Q 200 188 202 180" stroke="#b09070" stroke-width="1.5" fill="none"/>
+
+      <!-- Mouth - slight frown -->
+      <path d="M 190 198 Q 200 193 210 198" stroke="#8a5a5a" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+      <!-- Crows / ravens flying -->
+      <g opacity="0.6" fill="#111">
+        <path d="M 50 100 Q 60 92 68 100 Q 60 98 50 100Z M 68 100 Q 76 92 84 100 Q 76 98 68 100Z"/>
+        <path d="M 300 80 Q 308 73 315 80 Q 308 78 300 80Z M 315 80 Q 322 73 329 80 Q 322 78 315 80Z"/>
+        <path d="M 340 140 Q 346 134 352 140 Q 346 138 340 140Z M 352 140 Q 358 134 364 140 Q 358 138 352 140Z"/>
+      </g>
+
+      <!-- Floating feathers -->
+      <ellipse cx="70" cy="200" rx="3" ry="8" fill="#222" opacity="0.5" transform="rotate(-20 70 200)"/>
+      <ellipse cx="330" cy="170" rx="2.5" ry="7" fill="#222" opacity="0.4" transform="rotate(15 330 170)"/>
+      <ellipse cx="110" cy="400" rx="2" ry="6" fill="#222" opacity="0.3" transform="rotate(-10 110 400)"/>
+    </svg>
+  </div>
+
+  <!-- Error content -->
+  <div class="error-content">
+    <div class="error-code-tag">// ERROR</div>
+    <h1 class="error-code">404</h1>
+    <h2 class="error-title">THIS PATH LEADS<br/>TO DARKNESS.</h2>
+    <p class="error-quote">
+      <em>"Even the greatest shinobi lose their way in the shadows."</em><br/>
+      — Itachi Uchiha
+    </p>
+    <p class="error-message">
+      The page you seek does not exist in this realm.
+    </p>
+    <div class="error-actions">
+      <a href="/" class="error-btn neo-box">RETURN HOME</a>
+    </div>
+    <!-- Sharingan decoration -->
+    <div class="sharingan-bg">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="45" fill="none" stroke="#cc000033" stroke-width="2"/>
+        <circle cx="50" cy="50" r="30" fill="#cc000022"/>
+        <circle cx="50" cy="50" r="15" fill="none" stroke="#cc000055" stroke-width="1.5"/>
+        <circle cx="50" cy="50" r="6" fill="#cc000066"/>
+        <line x1="50" y1="5" x2="50" y2="95" stroke="#cc000033" stroke-width="1"/>
+        <line x1="5" y1="50" x2="95" y2="50" stroke="#cc000033" stroke-width="1"/>
+        <line x1="18" y1="18" x2="82" y2="82" stroke="#cc000033" stroke-width="1"/>
+        <line x1="82" y1="18" x2="18" y2="82" stroke="#cc000033" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,246 @@
+<div class="profile-page">
+
+  <!-- Back button -->
+  <div class="back-bar">
+    <a href="/" class="back-btn neo-box-sm">← SEARCH AGAIN</a>
+    <div class="breadcrumb">CF / <span><%= user.handle %></span></div>
+  </div>
+
+  <!-- ── HERO CARD ── -->
+  <section class="profile-hero neo-box scroll-reveal">
+    <div class="profile-avatar-block">
+      <% if (user.titlePhoto && user.titlePhoto !== 'https://userpic.codeforces.org/no-title.jpg') { %>
+        <img src="<%= user.titlePhoto %>" alt="<%= user.handle %>" class="profile-avatar" />
+      <% } else { %>
+        <div class="profile-avatar-placeholder" style="background: <%= rankColor %>22; border: 3px solid <%= rankColor %>">
+          <span style="color: <%= rankColor %>; font-size: 2.5rem">
+            <%= user.handle.charAt(0).toUpperCase() %>
+          </span>
+        </div>
+      <% } %>
+      <div class="rank-badge" style="background: <%= rankColor %>22; border-color: <%= rankColor %>; color: <%= rankColor %>">
+        <%= (user.rank || 'Unranked').toUpperCase() %>
+      </div>
+    </div>
+
+    <div class="profile-info">
+      <h1 class="profile-handle">
+        <%= user.handle %>
+        <% if (user.country) { %><span class="profile-country">— <%= user.country %></span><% } %>
+      </h1>
+      <% if (user.firstName || user.lastName) { %>
+        <p class="profile-name"><%= user.firstName || '' %> <%= user.lastName || '' %></p>
+      <% } %>
+      <% if (user.organization) { %>
+        <p class="profile-org">🏢 <%= user.organization %></p>
+      <% } %>
+
+      <div class="profile-rating-row">
+        <div class="rating-chip neo-box-sm" style="border-color: <%= rankColor %>">
+          <span class="rating-label">RATING</span>
+          <span class="rating-value" style="color: <%= rankColor %>"><%= user.rating || 0 %></span>
+        </div>
+        <div class="rating-chip neo-box-sm">
+          <span class="rating-label">MAX</span>
+          <span class="rating-value"><%= maxRating %></span>
+        </div>
+        <div class="rating-chip neo-box-sm">
+          <span class="rating-label">CONTESTS</span>
+          <span class="rating-value"><%= contestCount %></span>
+        </div>
+        <div class="rating-chip neo-box-sm">
+          <span class="rating-label">FRIENDS</span>
+          <span class="rating-value"><%= user.friendOfCount || 0 %></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS GRID ── -->
+  <section class="stats-grid scroll-reveal">
+    <div class="stat-card neo-box">
+      <div class="stat-icon">📨</div>
+      <div class="stat-num counter" data-target="<%= totalSubmissions %>">0</div>
+      <div class="stat-label">TOTAL SUBMISSIONS</div>
+    </div>
+    <div class="stat-card neo-box">
+      <div class="stat-icon">✅</div>
+      <div class="stat-num counter" data-target="<%= totalSolved %>">0</div>
+      <div class="stat-label">PROBLEMS SOLVED</div>
+    </div>
+    <div class="stat-card neo-box">
+      <div class="stat-icon">⚔️</div>
+      <div class="stat-num counter" data-target="<%= contestCount %>">0</div>
+      <div class="stat-label">CONTESTS</div>
+    </div>
+    <div class="stat-card neo-box">
+      <div class="stat-icon">🔥</div>
+      <div class="stat-num counter" data-target="<%= maxRating %>">0</div>
+      <div class="stat-label">PEAK RATING</div>
+    </div>
+  </section>
+
+  <!-- ── TWO-COL: Verdicts + Languages ── -->
+  <div class="two-col scroll-reveal">
+
+    <!-- Verdict Breakdown -->
+    <div class="chart-card neo-box">
+      <div class="card-header">
+        <span class="card-tag">// VERDICTS</span>
+        <h2 class="card-title">SUBMISSION OUTCOMES</h2>
+      </div>
+      <div class="verdict-list">
+        <% const verdictLabels = {
+          OK: { label: 'Accepted', color: '#00ff9d' },
+          WRONG_ANSWER: { label: 'Wrong Answer', color: '#ff4d4d' },
+          TIME_LIMIT_EXCEEDED: { label: 'TLE', color: '#ff9900' },
+          RUNTIME_ERROR: { label: 'Runtime Error', color: '#cc44ff' },
+          MEMORY_LIMIT_EXCEEDED: { label: 'MLE', color: '#ff6699' },
+          COMPILATION_ERROR: { label: 'Compile Error', color: '#ffdd00' },
+          SKIPPED: { label: 'Skipped', color: '#888' },
+        };
+        const totalV = Object.values(verdictMap).reduce((a,b) => a+b, 0) || 1;
+        %>
+        <% Object.entries(verdictMap).sort((a,b) => b[1]-a[1]).forEach(([v, count]) => {
+          const vInfo = verdictLabels[v] || { label: v, color: '#aaa' };
+          const pct = Math.round((count / totalV) * 100);
+        %>
+          <div class="verdict-item">
+            <div class="verdict-info">
+              <span class="verdict-dot" style="background: <%= vInfo.color %>"></span>
+              <span class="verdict-name"><%= vInfo.label %></span>
+              <span class="verdict-count"><%= count %></span>
+            </div>
+            <div class="verdict-bar-wrap">
+              <div class="verdict-bar" style="width: 0%; background: <%= vInfo.color %>" data-width="<%= pct %>%"></div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <!-- Language Breakdown -->
+    <div class="chart-card neo-box">
+      <div class="card-header">
+        <span class="card-tag">// LANGUAGES</span>
+        <h2 class="card-title">TOP LANGUAGES</h2>
+      </div>
+      <div class="lang-grid">
+        <% const langColors = ['#00ff9d','#4df0ff','#ff9900','#cc44ff','#ffdd00','#ff4d4d']; %>
+        <% topLanguages.forEach(([lang, count], i) => { %>
+          <div class="lang-item neo-box-sm" style="border-color: <%= langColors[i % langColors.length] %>33">
+            <div class="lang-bar-wrap">
+              <div class="lang-bar" style="height: 0%; background: <%= langColors[i % langColors.length] %>"
+                   data-height="<%= Math.min(100, Math.round(count / (topLanguages[0][1] || 1) * 100)) %>%"></div>
+            </div>
+            <div class="lang-count" style="color: <%= langColors[i % langColors.length] %>"><%= count %></div>
+            <div class="lang-name"><%= lang.replace('GNU ', '').replace('C++', 'C++').substring(0, 12) %></div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RATING HISTORY ── -->
+  <% if (ratingHistory && ratingHistory.length > 0) { %>
+  <section class="rating-section neo-box scroll-reveal">
+    <div class="card-header">
+      <span class="card-tag">// HISTORY</span>
+      <h2 class="card-title">RATING JOURNEY</h2>
+    </div>
+    <div class="rating-chart-wrap">
+      <canvas id="ratingChart" class="rating-canvas"></canvas>
+    </div>
+    <script>
+      window.RATING_DATA = <%- JSON.stringify(ratingHistory.map(r => ({
+        contest: r.contestName,
+        rating: r.newRating,
+        rank: r.rank,
+        date: new Date(r.ratingUpdateTimeSeconds * 1000).toLocaleDateString('en-IN', { month:'short', year:'2-digit' })
+      }))) %>;
+    </script>
+  </section>
+  <% } %>
+
+  <!-- ── PROBLEM TAGS ── -->
+  <% if (topTags.length > 0) { %>
+  <section class="tags-section neo-box scroll-reveal">
+    <div class="card-header">
+      <span class="card-tag">// STRENGTHS</span>
+      <h2 class="card-title">PROBLEM TAGS</h2>
+    </div>
+    <div class="tags-cloud">
+      <% topTags.forEach(([tag, count], i) => {
+        const sizes = ['tag-xl','tag-lg','tag-md','tag-md','tag-sm','tag-sm','tag-sm','tag-sm','tag-sm','tag-sm','tag-sm','tag-sm'];
+      %>
+        <div class="tag-item <%= sizes[i] || 'tag-sm' %> neo-box-sm">
+          <span class="tag-name"><%= tag %></span>
+          <span class="tag-count"><%= count %></span>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+  <% } %>
+
+  <!-- ── RATING DISTRIBUTION ── -->
+  <% if (ratingDist.length > 0) { %>
+  <section class="rating-dist-section neo-box scroll-reveal">
+    <div class="card-header">
+      <span class="card-tag">// DIFFICULTY</span>
+      <h2 class="card-title">PROBLEM DIFFICULTY SOLVED</h2>
+    </div>
+    <div class="dist-bars">
+      <% const distMax = Math.max(...ratingDist.map(([,c]) => c));
+         const distColors = ['#00ff9d','#4df0ff','#ff9900','#ffdd00','#ff6699','#cc44ff','#ff4d4d'];
+      %>
+      <% ratingDist.forEach(([label, count], i) => { %>
+        <div class="dist-col">
+          <div class="dist-bar-wrap">
+            <div class="dist-count"><%= count %></div>
+            <div class="dist-bar"
+                 style="height: 0%; background: <%= distColors[i % distColors.length] %>"
+                 data-height="<%= Math.round(count / distMax * 100) %>%">
+            </div>
+          </div>
+          <div class="dist-label"><%= label %></div>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+  <% } %>
+
+  <!-- ── RECENT SUBMISSIONS ── -->
+  <section class="recent-section neo-box scroll-reveal">
+    <div class="card-header">
+      <span class="card-tag">// ACTIVITY</span>
+      <h2 class="card-title">RECENT SUBMISSIONS</h2>
+    </div>
+    <% if (recentSubmissions.length === 0) { %>
+      <div class="empty-state">No recent submissions found.</div>
+    <% } else { %>
+      <div class="submissions-table">
+        <div class="sub-header">
+          <span>PROBLEM</span>
+          <span>VERDICT</span>
+          <span>LANGUAGE</span>
+          <span>TIME</span>
+        </div>
+        <% recentSubmissions.forEach(sub => {
+          const verdictColors = { OK:'#00ff9d', WRONG_ANSWER:'#ff4d4d', TIME_LIMIT_EXCEEDED:'#ff9900' };
+          const vc = verdictColors[sub.verdict] || '#aaa';
+          const vLabel = sub.verdict === 'OK' ? 'AC' : sub.verdict.replace(/_/g,' ').substring(0,10);
+        %>
+          <div class="sub-row neo-box-sm">
+            <span class="sub-problem" title="<%= sub.problemName %>"><%= sub.problemName %></span>
+            <span class="sub-verdict" style="color:<%= vc %>; border-color:<%= vc %>33">
+              <%= vLabel %>
+            </span>
+            <span class="sub-lang"><%= sub.language.replace('GNU ','').substring(0,10) %></span>
+            <span class="sub-time"><%= sub.time %></span>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+  </section>
+
+</div>

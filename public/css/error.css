@@ -1,0 +1,210 @@
+/* ═══════════════════════════════════════════
+   ERROR PAGES — ITACHI THEME
+   ═══════════════════════════════════════════ */
+
+.error-body {
+  background: #070707;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.error-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  max-width: 1100px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* ── ITACHI SVG ── */
+.itachi-wrap {
+  flex-shrink: 0;
+  width: 320px;
+  animation: itachiFloat 4s ease-in-out infinite;
+  position: relative;
+}
+
+.itachi-svg {
+  width: 100%;
+  filter: drop-shadow(0 0 40px rgba(204, 0, 0, 0.4));
+}
+
+.itachi-amaterasu .itachi-svg {
+  filter: drop-shadow(0 0 60px rgba(255, 34, 0, 0.7));
+  animation: itachiFloat 4s ease-in-out infinite, amaterasuPulse 2s ease-in-out infinite;
+}
+
+@keyframes itachiFloat {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+
+@keyframes amaterasuPulse {
+  0%, 100% { filter: drop-shadow(0 0 40px rgba(255, 34, 0, 0.5)); }
+  50% { filter: drop-shadow(0 0 80px rgba(255, 34, 0, 0.9)); }
+}
+
+/* ── ERROR CONTENT ── */
+.error-content {
+  flex: 1;
+  min-width: 280px;
+  position: relative;
+}
+
+.error-code-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  color: #cc0000;
+  letter-spacing: 0.2em;
+  margin-bottom: 0.75rem;
+  animation: fadeIn 0.6s 0.2s both;
+}
+
+.error-code {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(6rem, 16vw, 11rem);
+  line-height: 0.85;
+  color: #e8e8e8;
+  margin-bottom: 0.5rem;
+  animation: slideUp 0.7s 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  text-shadow: 0 0 80px rgba(204, 0, 0, 0.2);
+}
+
+.error-code-red {
+  color: #cc0000;
+  text-shadow: 0 0 80px rgba(204, 0, 0, 0.5);
+}
+
+.error-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  color: #c8a882;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+  animation: slideUp 0.7s 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.error-handle {
+  color: #cc0000;
+  font-style: italic;
+}
+
+.error-quote {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  color: #555;
+  line-height: 1.8;
+  border-left: 2px solid #cc000066;
+  padding-left: 1rem;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.6s 0.6s both;
+}
+
+.error-message {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  color: #777;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.6s 0.75s both;
+}
+
+.error-debug {
+  display: block;
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 77, 77, 0.08);
+  border: 1px solid rgba(255, 77, 77, 0.2);
+  border-radius: 4px;
+  font-size: 0.7rem;
+  color: #ff4d4d;
+  word-break: break-all;
+}
+
+.error-actions {
+  animation: fadeIn 0.6s 0.9s both;
+}
+
+.error-btn {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #cc0000;
+  padding: 0.85rem 2rem;
+  border: 2px solid #cc0000;
+  border-radius: 8px;
+  background: rgba(204, 0, 0, 0.05);
+  box-shadow: 4px 4px 0px #cc000044, 6px 6px 16px #080808, -6px -6px 16px #282828;
+  transition: all 0.2s;
+}
+
+.error-btn:hover {
+  background: rgba(204, 0, 0, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px #cc0000, 8px 8px 22px #080808, -8px -8px 22px #282828;
+  color: #ff2200;
+  border-color: #ff2200;
+}
+
+/* ── BACKGROUND SHARINGAN ── */
+.sharingan-bg {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  right: -60px;
+  bottom: -60px;
+  opacity: 0.4;
+  pointer-events: none;
+  animation: rotateSlow 20s linear infinite;
+  z-index: -1;
+}
+
+.sharingan-red { filter: hue-rotate(20deg) brightness(1.5); }
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ── SHARED ANIMATIONS ── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .error-container {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 2rem;
+  }
+  .itachi-wrap { width: 220px; }
+  .error-quote { text-align: left; }
+  .sharingan-bg { right: -80px; bottom: -80px; width: 200px; height: 200px; }
+}
